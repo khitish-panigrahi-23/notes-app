@@ -1,0 +1,17 @@
+body{
+    background-color: red;
+    color:red;
+}
+h1{
+    padding-left: 30%;
+    color: red;
+    border-radius: 30px;
+}
+#button{
+    margin-left: 50%;
+}
+#mainarea{
+    margin-right: 10%;
+    margin-left: 10%;
+    /* padding-left: 10%; */
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Myteams</title>
+        <script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
+        <link rel="icon" href="../static/img/favicon.png" sizes="40x40" type="image/png">
+        <link rel="stylesheet" href="../static/css/bootstrap-social.css">
+        <link rel="stylesheet" href="../static/css/style.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <!-- CSS only -->
+  </head>
+    <body>
+        {{>header}}
+        {{!-- {{>header}} --}}
+  <!--Main Navigation-->
+        <div class="centered-form">
+            {{!-- <div class="centered-form__box"> --}}
+                {{!-- <h1>Log in</h1>
+                <form>
+                    <label>email</label>
+                    <input type="text" name="username" placeholder="email" class="email" required>
+                    <!-- added by me -->
+                    <label>Password</label>
+                    <input type="password" name="key" placeholder="password" class="password" required>
+                    <!-- added by me end -->
+                    <button class="loginbutton">Log in</button>
+                </form> --}}
+            {{!-- </div> --}}
+            <h2><b>Get Your Notes Across All Your Devices<br> just Sign in with Google&nbsp&nbsp&nbsp</b></h2>
+    <div class="card" id="googlecard">
+        
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign In with Google
+          </a>
+        </div>
+      </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../../static/bootstrap.min.js"></script>
+        <script src="../login.js"></script>
+    </body>
+    {{>footer}}
+</html>

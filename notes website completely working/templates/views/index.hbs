@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Our notes</title>
+        <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../static/css/got.css">
+        <link rel="icon" href="../../static/img/favicon.png" sizes="40x40" type="image/png">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <body>
+        {{>header}}
+        <div id="main">
+            
+            <h1 >Welcome to Notes app</h1>
+        </div>
+        
+ 
+<!-- Create a tag that we will use as the editable area. -->
+<!-- You can use a div tag as well. -->
+<h1 >Start of Editable area</h1>
+<div id="mainarea">
+    <textarea id="text"></textarea>
+</div> 
+
+<h1 >End of Editables area</h1>
+<button id="button">Submit</button>
+ 
+<!-- Include Editor JS files. -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+ 
+<!-- Initialize the editor. -->
+<script>
+  new FroalaEditor('textarea');
+</script> 
+<script src="./index.js"></script>
+          {{!-- <footer id="built">
+            <p>Built by
+              <a href="http://babayaga9823.github.io/">@babayaga</a>
+            </p>
+          </footer> --}}
+    </body>
+    {{>footer}}
+</html>

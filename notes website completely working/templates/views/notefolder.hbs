@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Notes Web App</title>
+    <link rel="icon" href="../../static/img/favicon.png" sizes="40x40" type="image/png">
+    <!-- EXTERNAL CSS LINK  -->
+    <link rel="stylesheet" href="../../static/css/perfect.css">
+    <!-- GOOGLE FONT LINKS -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:500&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- FONTAWESOME LINK  -->
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js" crossorigin="anonymous"></script>
+    <!-- SLICK SLIDER LINK -->
+    <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <script src="../../static/jQuery3.4.1.js"></script> 
+    <script src="../../static/jQuery.js "></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+   <script src="../../folderhandle.js"></script>
+   <script src="../../getfolderdetails.js"></script>
+   <script src="../../editfolder.js"></script>
+   <script src="../../deletefolder.js"></script>
+   <script src="../../deletecompfolder.js"></script>
+        <script>
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+   
+    <style>
+      .aboutMe {
+        background-color: rgb(235, 235, 235);
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+   {{!-- <div class="headerspace"></div> --}}
+    <div class="wrapper">
+
+      <!-- NAVIGATION STARTS (DESKTOP VIEW AFTER 768px) ------------------->
+      <nav class="navBar" >
+        <div id="navMenu ">
+          <a href="#intro" class="logo">
+            <span><img src="static/img/favicon.png" width="30" height="30" class="d-inline-block align-top" id="mainimg"alt=""><h3>OURNOTES</h3></span>
+            <span id="profession">-designed to sink across all platforms</span>
+          </a>
+          {{!-- <a href="#intro" id="addprop" class="navItems">&nbsp Add New Note &nbsp <button >+</button></a> --}}
+          <a href="#" class="navItems" id="userimg"><script>getuserimg()</script>  </a>
+          <a href="#" id="userimg foldernameone" class="navItems folderhead" ><img src="https://img.icons8.com/fluent/48/000000/browse-folder.png" width="25" height="25" class="d-inline-block align-top"alt=""/>&nbsp{{foldname}} </a>
+          <a href="/addfolder" id="userimg" class="navItems folderhead" ><img src="https://img.icons8.com/cotton/64/000000/add-folder--v1.png" width="30" height="30" class="d-inline-block align-top"alt="">ADD NEW FOLDER</a>
+          <a href="" onclick="deletecompfolderfun()" id="userimg" class="navItems" ><img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" width="30" height="30" class="d-inline-block align-top"alt="">DELETE CURRENT FOLDER</a>
+          {{!-- <a href="" id="userimg" class="navItems" ><img src="https://img.icons8.com/color/48/000000/add-subnode.png" width="30" height="30" class="d-inline-block align-top"alt="">YOUR FOLDERS</a> --}}
+          <a href="#intro" id="addprop" class="navItems"> Add New Note &nbsp<img src="static/img/addimg.png" width="25" height="25" class="d-inline-block align-top"alt=""></a>
+          <a href="" id="userimg" class="navItems" ><img src="https://img.icons8.com/officel/50/000000/active-directory.png" width="30" height="30" class="d-inline-block align-top"alt="">YOUR NOTES</a>
+         
+          {{!-- <a href="#experience" class="navItems"> experience </a>
+          <a href="#codes" class="navItems">codes</a>
+          <a href="#publications" class="navItems"> Publications </a>
+          <a href="#education" class="navItems"> education </a>
+          <a href="#skills" class="navItems"> skills </a>
+          <a href="#projects" class="navItems"> projects </a>
+          <a href="#blogs" class="navItems"> blogs </a> --}}
+          
+            {{#each values}}
+                <a href="#{{name}}" class="navItems" ><img src="https://img.icons8.com/cotton/64/000000/green-file--v2.png" width="30" height="30" class="d-inline-block align-top"alt=""> {{name}}</a>
+            {{/each}}
+          <a href="#contactsection" class="navItems" id="aboutus">&nbsp&nbsp About Us&nbsp&nbsp<img src="static/img/book.png" width="25" height="25" class="d-inline-block align-top"alt=""> </a>
+          
+         <!--  <a href="#contact" class="navItems"> contact </a>
+          <a
+            href="https://drive.google.com/file/d/1YvdI33VvD_hUyce0oCST8GoOBzs8slr5/view?usp=sharing"
+            target="_blank"
+            class="navItems resumeHover"
+          >
+            resume
+          </a> -->
+          {{!-- <a href="https://drive.google.com/file/d/11fclHeJgQsLLJ2iPoEcPRaPL4DNW99lB/view?usp=sharing" class="navItems">resume</a> --}}
+        </div>
+      </nav>
+      <!-- NAVIGATION ENDS --------------------->
+
+      <!-- NAVIGATION STARTS (DESKTOP VIEW BEFORE 768px) ------------------->
+      <nav class="topHeading" id="logoHeading">
+
+        <div class="mobileViewNavbar">
+
+          <div id="toggleOpen"> &#9776; </div>
+  
+          <div class="mobileViewNavmenu">
+            {{!-- <a href="#intro" class="mobileViewLogo">
+                <div id="mobmainarea">
+                    <textarea id="text"></textarea>
+                </div> 
+            </a> --}}
+          </div>
+        </div>
+
+      </nav>
+      <!-- NAVIGATION ENDS  ------------------->
+
+      <!-- HIDDEN NAVIGATION ITEMS STARTS (MOBILE VIEW) -->
+      <nav class="hiddenMenu" id="showHide">
+        <!-- <div id="toggleClose"> &#10005; </div> -->
+        <!-- aeta mobile paen -->
+        <div id="toggleClose"></div>
+        <div id="navMenu hiddenItems">
+          {{!-- <a href="#about" class="navItems about" id="navItems"> about </a>
+          <a href="#experience" class="navItems experience" id="navItems"> experience </a>
+          <a href="#projects" class="navItems projects" id="navItems"> projects </a>
+          <a href="#skills" class="navItems skills" id="navItems"> skills </a>
+          <a href="#education" class="navItems education" id="navItems"> education </a>
+          <a href="#contact" class="navItems contact" id="navItems"> contact </a>
+          <a href="#blogs" class="navItems"> blogs </a> --}}
+          
+          {{!-- <a href="https://1drv.ms/b/s!AmsFhTxIwCaRamjuLNw4C_imleE?e=hEENhi" target="_blank" class="navItems resumeHover" id="navItems">resume</a> --}}
+            {{!-- {{#each values}}
+                <a href='#'+{{name}} class="navItems"  > {{name}} </a>
+            {{/each}} --}}
+            <a href="#contactsection" class="navItems"> About Us </a>
+        </div>
+
+      </nav>
+      <!-- HIDDEN NAVIGATION ITEMS ENDS -->
+
+      <!-- SECTION STARTS ------------------------------------------>
+
+      <!-- INTRO SECTION STARTS -->
+              <nav class="navbar  navbar-expand-lg navbar-light" style="background-color: rgb(235, 235, 235);" id="navi">
+            <a class="navbar-brand" href="#">
+                <img src="static/img/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Ournotes
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav active">
+                
+                 <li class="nav-item active">
+                  <a class="nav-link" href="/"><img src="https://img.icons8.com/fluent/96/000000/home.png" width="30" height="30" class="d-inline-block align-top"alt=""> <span class="sr-only">(current)</span></a>
+                </li>
+                 {{!-- <li class="nav-item active">
+                  <a class="nav-link" href="/bunk"><img src="https://img.icons8.com/ios-filled/100/000000/attendance-mark.png" width="30" height="30" class="d-inline-block align-top"alt=""> <span class="sr-only">(current)</span></a>
+                </li> --}}
+                  <li class="nav-item active">
+                  <a class="nav-link" href="/placement"><img src="https://img.icons8.com/plasticine/50/000000/client-company.png" width="30" height="30" class="d-inline-block align-top"alt=""> <span class="sr-only">Placement Experience</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/addfolder"><img src="https://img.icons8.com/cotton/64/000000/add-folder--v1.png" width="30" height="30" class="d-inline-block align-top"alt=""><span class="sr-only">(current)</span></a>
+                </li>
+                {{!-- <li class="nav-item active">
+                  <a class="nav-link" href="/myled"><img src="https://img.icons8.com/dusk/64/000000/led-diode.png" width="30" height="30" class="d-inline-block align-top"alt=""><span class="sr-only">(current)</span></a>
+                </li> --}}
+                {{!-- <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li> --}}
+                 <li class="nav-item active">
+                  <a class="nav-link" href="/login"><img src="https://img.icons8.com/color/240/000000/shutdown--v1.png" width="30" height="30" class="d-inline-block align-top"alt=""><span class="sr-only">(current)</span></a>
+                </li>
+              
+                  <li>
+                            <div class="dropdown" id="givespace">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Select Notes
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                           
+                                    {{#each values}}
+                                        <a class="dropdown-item" href="#{{name}}"><img src="https://img.icons8.com/cotton/64/000000/green-file--v2.png" width="30" height="30" class="d-inline-block align-top"alt="">{{name}}</a>
+                                    {{/each}}
+                                </div>
+                                </div>
+                </li>
+              
+              </ul>
+            </div>
+          </nav>
+      <section class="section scrollspy" id="intro" style="background-color:rgb(235, 235, 235);">
+        
+        <h1><form>
+        <img src="https://img.icons8.com/cotton/64/000000/red-file--v2.png" width="30" height="30" class="d-inline-block align-top"alt="">Note Name
+        <input type="text" name="notename" placeholder="Note Name" class="form-control notename" onchange="mycheckFunctionfoldernotes(this.value)" ></form></h1>
+        <!-- Search form -->
+{{!-- <input class="form-control" type="text" placeholder="Search" aria-label="Search"> --}}
+        <div class="introWrapper">
+          <section class="aboutMe parallaxContainer">
+                    {{!-- <div id="desktitle">
+                        <label >Title of the Note</label>
+                    <input type="text" name="notename" placeholder="Type here" class="notename" required>
+                    </div>  --}}
+                    
+                     <div id="deskmainarea">
+                    <textarea id="text"></textarea>
+                     {{!-- <button id="button" class="newbutton">Submit</button> --}}
+                     <button type="button" id="addbutton" onclick="firstnotefolderbutton()" class="btn btn-primary newbutton" data-toggle="button" aria-pressed="false" autocomplete="off">
+  SAVE
+</button>
+                     <div id="status" >    
+                     </div>
+                    </div> 
+          </section>
+        </div>
+      </section>
+
+         {{#each values}}
+      <section class="section scrollspy" id={{name}} style="background-color:rgb(235, 235, 235);">
+        <h1><img src="static/img/noteimg.png" width="30" height="30" class="d-inline-block align-top"alt="">{{name}}
+        </h1>
+          {{!-- <a  class="btn btn-info btn-lg commonrefresh" onclick="myrefreshFunction(document.getElementById('{{name}}').id)">
+                     <span class="glyphicon glyphicon-refresh"></span> Refresh
+                     </a> --}}
+         <div id="deskmainarea{{name}}" class="commontextarea">
+              <textarea id="text"></textarea>
+              <script>getfolderdetails({{name}})</script>
+              {{!-- <button id="{{name}}" class="commonbutton">Save Changes</button> --}}
+<table style="width:100%">
+  <tr>
+     <th><button type="button" id="{{name}}" onclick="editmyfolder(document.getElementById('{{name}}').id)"  class="btn btn-primary commonbutton" data-toggle="button" aria-pressed="false" autocomplete="off">
+      Save Changes
+    </button>
+	</th>
+        <th>  <button type="button" id="{{name}}" onclick="deletemyfolder(document.getElementById('{{name}}').id)"  class="btn btn-danger commonbutton" data-toggle="button" aria-pressed="false" autocomplete="off">
+      Delete Note
+    </button>
+    </th> 
+  </tr>
+</table>
+              <div id="status{{name}}" class="commonstatus" >    
+              </div>
+        </div> 
+      </section>
+      {{/each}}
+     
+        
+      <!-- CONTACT SECTION STARTS -->
+      <section class="section scrollspy" id="contactsection">
+        
+        <h1>ABOUT US</h1>
+        
+       
+      </section>
+      <!-- CONTACT SECTION ENDS -->
+
+      <!-- SECTION ENDS ---------------------------------------------->
+    
+
+    <!-- JS LINKS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+ 
+<!-- Initialize the editor. -->
+    <script>
+    new FroalaEditor('textarea');
+    </script> 
+    <script src="./index.js"></script>
+    <script src="./button.js"></script>
+    <script src="./delfun.js"></script>
+    <script src="../../static/script.js"></script>
+    <script src="../../static/jQuery.js"></script>
+    <script src="../../static/bootstrap.min.js"></script>
+    <script src="../../static/simple-scrollspy.min.js"></script>
+    <script>
+  new FroalaEditor('.selector', {
+    // Set the image upload URL.
+    imageUploadURL: '/upload_image'
+  })
+</script>
+    
+    <!-- <script>
+      window.addEventListener("hashchange", function () {
+        window.scrollByPages(1);
+      });
+    </script> -->
+   
+    <div class="footerspace"> {{>footer}}</div>
+  </body>
+</html>
