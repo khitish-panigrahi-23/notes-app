@@ -8,6 +8,7 @@ const device = require('express-device');
 const port =process.env.PORT;
 // var FroalaEditor = require('wysiwyg-editor-node-sdk');
 // var fs = require('fs');
+//a modification is being implemented by deadpoolbaba which is originally created byh khitish.iiitb@gmail.com
 
 
 app.use(bodyParser.urlencoded({
